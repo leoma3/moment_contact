@@ -61,7 +61,6 @@ public class LandingActivity extends Activity {
     }
 
 
-
     public void login(View v) {
 
 
