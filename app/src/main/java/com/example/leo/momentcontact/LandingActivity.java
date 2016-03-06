@@ -80,6 +80,7 @@ public class LandingActivity extends Activity {
 //        }
 
 
+
         Intent intent = new Intent(this, PlacesActivity.class);
         startActivity(intent);
     }
