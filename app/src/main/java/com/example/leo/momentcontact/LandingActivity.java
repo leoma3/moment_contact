@@ -8,9 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -63,38 +61,38 @@ public class LandingActivity extends Activity {
 
     public void login(View v) {
 
-
         String who = usernameEditText.getText().toString();
+        String pass = passwordEditText.getText().toString();
 
-        Cursor result = myDatabase.getUser(who);
+        Cursor whoResult = myDatabase.getUser(who);
+        int pwIndex = whoResult.getColumnIndex(Constants.PASSWORD);
+
+//        whoResult.moveToNext();
 
 
+        if (whoResult.moveToNext()){
 
-        if (result.getCount() > 0 ){
-            Intent intent = new Intent(this, PlacesActivity.class);
+            String pwDB = whoResult.getString(pwIndex);
 
-            intent.putExtra("who", who);
-            startActivity(intent);
+        Toast.makeText(LandingActivity.this, pwDB+"", Toast.LENGTH_SHORT).show();
+
+            if (pass.equals(pwDB)){
+
+                Intent intent = new Intent(this, PlacesActivity.class);
+
+                intent.putExtra("who", who);
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(this, "Password doesn't match, try again", Toast.LENGTH_SHORT).show();
+            }
+
         }
         else{
 
             Toast.makeText(this, "DNS please register", Toast.LENGTH_SHORT).show();
         }
 
-
-//
-//        Toast.makeText(this, username + password, Toast.LENGTH_SHORT).show();
-//
-//        if (id < 0) {
-//            Toast.makeText(this, "login fail", Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
-//        }
-
-
-//
-//        Intent intent = new Intent(this, PlacesActivity.class);
-//        startActivity(intent);
     }
 
     public void register(View v) {
@@ -109,6 +107,7 @@ public class LandingActivity extends Activity {
         } else {
             Toast.makeText(this, "register success", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, PlacesActivity.class);
+            intent.putExtra("who", username);
             startActivity(intent);
         }
 
