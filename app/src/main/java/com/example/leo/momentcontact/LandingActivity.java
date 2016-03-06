@@ -61,6 +61,7 @@ public class LandingActivity extends Activity {
     }
 
 
+
     public void login(View v) {
 
 
@@ -78,6 +79,7 @@ public class LandingActivity extends Activity {
 //        } else {
 //            Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
 //        }
+
 
         Intent intent = new Intent(this, PlacesActivity.class);
         startActivity(intent);
