@@ -11,5 +11,5 @@ public class Constants {
     public static final String PASSWORD = "Password";
     public static final String STANLEY_PARK = "StanleyPark";
     public static final String POLICE_STATION = "PoliceStation";
-    public static final int DATABASE_VERSION = 8;
+    public static final int DATABASE_VERSION = 9;
 }

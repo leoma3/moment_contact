@@ -21,10 +21,14 @@ import android.widget.Toast;
 public class PlacesActivity extends Activity{
 
     int completePercent;
+    TextView profileName;
     TextView stanleyPlace;
     TextView gastownPlace;
     String stanleyName;
     String gastownName;
+    MyDatabase db;
+    SimpleCursorAdapter myAdapter;
+
 
     private static final int PROGRESS = 0x1;
 
@@ -38,10 +42,15 @@ public class PlacesActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
+        profileName = (TextView)findViewById(R.id.profileNameTextView);
         stanleyPlace = (TextView)findViewById(R.id.stanleyTextView);
         stanleyName = "Stanley Park";
         gastownName = "Gastown";
         gastownPlace = (TextView)findViewById(R.id.gasTextView);
+        db = new MyDatabase(this);
+
+
+
 
 //        mProgress = (ProgressBar) findViewById(R.id.stanleyProgressBar);
 //

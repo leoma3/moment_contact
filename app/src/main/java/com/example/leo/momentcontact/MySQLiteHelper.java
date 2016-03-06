@@ -17,7 +17,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
             "CREATE TABLE " +
             Constants.TABLE_NAME + " ("+
             Constants.UID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-            Constants.NAME + " TEXT, " +
+            Constants.NAME + " TEXT UNIQUE, " +
             Constants.PASSWORD + " TEXT, " +
             Constants.STANLEY_PARK + " TEXT, " +
             Constants.POLICE_STATION + " TEXT);";
