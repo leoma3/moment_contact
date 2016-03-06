@@ -42,6 +42,8 @@ public class PlacesActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
+
+
         profileName = (TextView)findViewById(R.id.profileNameTextView);
         stanleyPlace = (TextView)findViewById(R.id.stanleyTextView);
         stanleyName = "Stanley Park";

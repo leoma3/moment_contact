@@ -34,14 +34,14 @@ public class LandingActivity extends Activity {
         password = passwordEditText.getText().toString();
         myDatabase = new MyDatabase(this);
 
-        String[] strArr = {"1","2","3"};
-
-        String strResult = Constants.convertArrayToString(strArr);
-
-        String[] newArr = Constants.convertStringToArray(strResult);
-
-
-        Toast.makeText(this, newArr[2], Toast.LENGTH_LONG).show();
+//        String[] strArr = {"1","2","3"};
+//
+//        String strResult = Constants.convertArrayToString(strArr);
+//
+//        String[] newArr = Constants.convertStringToArray(strResult);
+//
+//
+//        Toast.makeText(this, newArr[2], Toast.LENGTH_LONG).show();
 
     }
 
@@ -64,12 +64,24 @@ public class LandingActivity extends Activity {
     public void login(View v) {
 
 
+        String who = usernameEditText.getText().toString();
 
-//        String[] columns = {Constants.UID, Constants.NAME, Constants.PASSWORD};
-//
-//        Cursor cursor = sqLiteDatabase.query(Constants.TABLE_NAME, columns, null, null, null, null, null);
-//        return cursor;
-//
+        Cursor result = myDatabase.getUser(who);
+
+
+
+        if (result.getCount() > 0 ){
+            Intent intent = new Intent(this, PlacesActivity.class);
+
+            intent.putExtra("who", who);
+            startActivity(intent);
+        }
+        else{
+
+            Toast.makeText(this, "DNS please register", Toast.LENGTH_SHORT).show();
+        }
+
+
 //
 //        Toast.makeText(this, username + password, Toast.LENGTH_SHORT).show();
 //
@@ -80,12 +92,15 @@ public class LandingActivity extends Activity {
 //        }
 
 
-
-        Intent intent = new Intent(this, PlacesActivity.class);
-        startActivity(intent);
+//
+//        Intent intent = new Intent(this, PlacesActivity.class);
+//        startActivity(intent);
     }
 
     public void register(View v) {
+
+        username = usernameEditText.getText().toString();
+        password = passwordEditText.getText().toString();
 
         Toast.makeText(this, username + password, Toast.LENGTH_SHORT).show();
         long id = myDatabase.insertData(username, password, "0", "0");
