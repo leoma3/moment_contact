@@ -34,6 +34,15 @@ public class LandingActivity extends Activity {
         password = passwordEditText.getText().toString();
         myDatabase = new MyDatabase(this);
 
+        String[] strArr = {"1","2","3"};
+
+        String strResult = Constants.convertArrayToString(strArr);
+
+        String[] newArr = Constants.convertStringToArray(strResult);
+
+
+        Toast.makeText(this, newArr[2], Toast.LENGTH_LONG).show();
+
     }
 
     public void addSomething(View view) {
@@ -50,6 +59,7 @@ public class LandingActivity extends Activity {
         Intent intent = new Intent(this, AllRowActivity.class);
         startActivity(intent);
     }
+
 
     public void login(View v) {
 

@@ -49,4 +49,17 @@ public class MyDatabase {
         return cursor;
     }
 
+    public Cursor getUser(String who)
+    {
+        //select plants from database of type 'herb'
+
+        String[] columns = {Constants.NAME, Constants.PASSWORD
+                , Constants.STANLEY_PARK, Constants.POLICE_STATION
+        };
+
+        String selection = Constants.NAME + "='" + who + "'";  //Type = 'herb'
+        Cursor cursor = sqLiteDatabase.query(Constants.TABLE_NAME, columns, selection, null, null, null, null);
+
+        return cursor;
+    }
 }
