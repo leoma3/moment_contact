@@ -20,7 +20,7 @@ public class GalleryActivity extends Activity{
 
         Bundle placesExtra = getIntent().getExtras();
         if(placesExtra != null) {
-            String pName = placesExtra.getString("PLACE_NAME");
+            String pName = placesExtra.getString("galleryName");
             placeName.setText(pName +" Gallery");
 
         }

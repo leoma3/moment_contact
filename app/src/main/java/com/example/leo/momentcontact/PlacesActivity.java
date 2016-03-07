@@ -25,6 +25,8 @@ public class PlacesActivity extends Activity {
     TextView gastownPercent;
     String stanleyName;
     String gastownName;
+    String sArrayDB;
+    String gArrayDB;
     MyDatabase db;
     SimpleCursorAdapter myAdapter;
 
@@ -53,12 +55,12 @@ public class PlacesActivity extends Activity {
 
         if (whoResult.moveToNext()){
 
-            String sPercDB = whoResult.getString(sPercIndex);
-            String gPercDB = whoResult.getString(gPercIndex);
+            sArrayDB = whoResult.getString(sPercIndex);  // "0,0,0,0,0"
+            gArrayDB = whoResult.getString(gPercIndex);
 
 //            Toast.makeText(this, sPercDB+ " " +gPercDB, Toast.LENGTH_SHORT).show();
 
-            String[] stanleyArray = Constants.convertStringToArray(sPercDB);
+            String[] stanleyArray = Constants.convertStringToArray(sArrayDB);
 
             float sum = 0;
 
@@ -74,7 +76,7 @@ public class PlacesActivity extends Activity {
             sPercentage = Integer.toString(Math.round(stanleyResult*100));
             stanleyPercent.setText(sPercentage + " %");
 
-            String[] gasArray = Constants.convertStringToArray(gPercDB);
+            String[] gasArray = Constants.convertStringToArray(gArrayDB);
             sum = 0;
             for (int i = 0; i < gasArray.length; i++){
 
@@ -100,13 +102,17 @@ public class PlacesActivity extends Activity {
 
     public void stanleyGallery(View v) {
         Intent intent = new Intent(this, GalleryActivity.class);
-        intent.putExtra("PLACE_NAME", stanleyName);
+        intent.putExtra("galleryName", stanleyName);
+        intent.putExtra("userName", Constants.NAME);
+        intent.putExtra("progress", sArrayDB);
         startActivity(intent);
     }
 
     public void gastownGallery(View v) {
         Intent intent = new Intent(this, GalleryActivity.class);
-        intent.putExtra("PLACE_NAME", gastownName);
+        intent.putExtra("galleryName", gastownName);
+        intent.putExtra("userName", Constants.NAME);
+        intent.putExtra("progress", gArrayDB);
         startActivity(intent);
     }
 
