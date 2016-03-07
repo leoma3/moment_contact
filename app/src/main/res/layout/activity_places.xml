@@ -35,10 +35,11 @@
         android:id="@+id/stanleyGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="stanleyGallery"
+        android:layout_alignBottom="@+id/gastownGroup"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="100dp"
-        android:onClick="stanleyGallery">
+        android:layout_marginBottom="50dp">
 
         <TextView
             android:id="@+id/stanleyTextView"
@@ -50,18 +51,18 @@
             android:text="Stanley Park"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-
-        <ProgressBar
-            android:id="@+id/stanleyProgressBar"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="false"
-            android:layout_weight="0.61"
-            android:layout_width="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_toRightOf="@+id/stanleyTextView"
-            android:layout_toEndOf="@+id/stanleyTextView"
-            android:layout_alignTop="@+id/stanleyTextView"
-            android:layout_alignBottom="@+id/stanleyTextView" />
+            android:text="0 %"
+            android:id="@+id/stanleyPercentTextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp" />
+
+
     </RelativeLayout>
 
 
@@ -84,22 +85,23 @@
             android:text="Gastown"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-
-        <ProgressBar
-            android:id="@+id/gasProgressBar"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/gasTextView"
-            android:layout_alignParentEnd="true"
+            android:text="0 %"
+            android:id="@+id/gasPercentTextView"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/gasTextView"
-            android:indeterminate="false"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="4.66"
-            android:layout_toEndOf="@+id/gasTextView"
-            android:layout_toRightOf="@+id/gasTextView" />
+            android:layout_alignParentEnd="true" />
+
 
     </RelativeLayout>
+
+
+
+
 
 
 </RelativeLayout>

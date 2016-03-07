@@ -60,7 +60,14 @@ public class GalleryActivity extends Activity{
 
 
 
+
         textView=(TextView) findViewById(R.id.textView);
+
+        Bundle placesExtra = getIntent().getExtras();
+//        if(placesExtra != null) {
+//            String pName = placesExtra.getString("galleryName");
+//            placeName.setText(pName +" Gallery");
+
 
 
 
