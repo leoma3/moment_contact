@@ -11,7 +11,7 @@ public class Constants {
     public static final String PASSWORD = "Password";
     public static final String STANLEY_PARK = "StanleyPark";
     public static final String POLICE_STATION = "PoliceStation";
-    public static final int DATABASE_VERSION = 12;
+    public static final int DATABASE_VERSION = 13;
 
     public static String strSeparator = ",";
     public static String convertArrayToString(String[] array){

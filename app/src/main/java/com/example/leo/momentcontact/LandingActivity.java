@@ -43,14 +43,14 @@ public class LandingActivity extends Activity {
 
     }
 
-    public void addSomething(View view) {
-        long id = myDatabase.insertData("LEO", "123", "01001", "1241233");
-        if (id < 0) {
-            Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    public void addSomething(View view) {
+//        long id = myDatabase.insertData("LEO", "123", "01001", "1241233");
+//        if (id < 0) {
+//            Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     public void viewResults(View view) {
 
@@ -74,7 +74,7 @@ public class LandingActivity extends Activity {
 
             String pwDB = whoResult.getString(pwIndex);
 
-            Toast.makeText(LandingActivity.this, pwDB+"", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), pwDB+"", Toast.LENGTH_SHORT).show();
 
             if (pass.equals(pwDB)){
 
@@ -101,7 +101,7 @@ public class LandingActivity extends Activity {
         password = passwordEditText.getText().toString();
 
         Toast.makeText(this, username + " " + password, Toast.LENGTH_SHORT).show();
-        long id = myDatabase.insertData(username, password, "[0,0,0,0,1]", "[0,0,0,0,0]");
+        long id = myDatabase.insertData(username, password, "0,1,0,1,1", "1,0,1,0,0");
         if (id < 0) {
             Toast.makeText(this, "register fail, duplicated", Toast.LENGTH_SHORT).show();
         } else {
