@@ -74,7 +74,7 @@ public class LandingActivity extends Activity {
 
             String pwDB = whoResult.getString(pwIndex);
 
-        Toast.makeText(LandingActivity.this, pwDB+"", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LandingActivity.this, pwDB+"", Toast.LENGTH_SHORT).show();
 
             if (pass.equals(pwDB)){
 
@@ -97,13 +97,13 @@ public class LandingActivity extends Activity {
 
     public void register(View v) {
 
-        username = usernameEditText.getText().toString();
+        username = usernameEditText.getText().toString().toLowerCase();
         password = passwordEditText.getText().toString();
 
-        Toast.makeText(this, username + password, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, username + " " + password, Toast.LENGTH_SHORT).show();
         long id = myDatabase.insertData(username, password, "0", "0");
         if (id < 0) {
-            Toast.makeText(this, "register fail", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "register fail, duplicated", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "register success", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, PlacesActivity.class);
