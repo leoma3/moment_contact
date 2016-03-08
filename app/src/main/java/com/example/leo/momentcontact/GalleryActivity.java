@@ -11,229 +11,119 @@ import android.widget.TextView;
 /**
  * Created by gloriazhong on 2016-03-05.
  */
-public class GalleryActivity extends Activity{
-
-    String given = "1,0,1,1,0";
-    String given2= "1,0,0,0,1";
-
-    String[] givenArray = {"1", "0", "1", "1", "0"};
-    String[] givenArray2= {"1", "0", "0", "0", "1"};
-
-    String where = "stanle"; // "aslkdja"
+public class GalleryActivity extends Activity {
 
 
+    String[] progress;
 
-    int sp1=Integer.parseInt(givenArray[0]);
-    int sp2=Integer.parseInt(givenArray[1]);
-    int sp3=Integer.parseInt(givenArray[2]);
-    int sp4=Integer.parseInt(givenArray[3]);
-    int sp5=Integer.parseInt(givenArray[4]);
-
-    int ps1=Integer.parseInt(givenArray2[0]);
-    int ps2=Integer.parseInt(givenArray2[1]);
-    int ps3=Integer.parseInt(givenArray2[2]);
-    int ps4=Integer.parseInt(givenArray2[3]);
-    int ps5=Integer.parseInt(givenArray2[4]);
+    String where; // "aslkdja"
 
 
+    int scount = 0;//stanleypark
+    int stotal = 5;
 
-    int scount=0;//stanleypark
-    int stotal=5;
-
-    int pcount=0;
-    int ptotal=5;
+    int gcount = 0;//gastown
+    int gtotal = 5;
 
     TextView textView;
 
     ProgressBar progressbar;
 
+    ImageButton imageButtons[] = new ImageButton[5];
+
+    int[] sp = new int[5];
+    int[] gt = new int[5];
+    int[] spImages = {
+            R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};
+    int[] gtImages={
+            R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic1};
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        ImageButton kksbtn1 = (ImageButton) findViewById(R.id.kksbtn1);
-        ImageButton kksbtn2 = (ImageButton) findViewById(R.id.kksbtn2);
-        ImageButton kksbtn3 = (ImageButton) findViewById(R.id.kksbtn3);
-        ImageButton kksbtn4 = (ImageButton) findViewById(R.id.kksbtn4);
-        ImageButton kksbtn5 = (ImageButton) findViewById(R.id.kksbtn5);
+        imageButtons[0] = (ImageButton) findViewById(R.id.kksbtn1);
+        imageButtons[1] = (ImageButton) findViewById(R.id.kksbtn2);
+        imageButtons[2] = (ImageButton) findViewById(R.id.kksbtn3);
+        imageButtons[3] = (ImageButton) findViewById(R.id.kksbtn4);
+        imageButtons[4] = (ImageButton) findViewById(R.id.kksbtn5);
 
-
-
-
-        textView=(TextView) findViewById(R.id.textView);
+        textView = (TextView) findViewById(R.id.textView);
 
         Bundle placesExtra = getIntent().getExtras();
-//        if(placesExtra != null) {
-//            String pName = placesExtra.getString("galleryName");
-//            placeName.setText(pName +" Gallery");
 
+        if (placesExtra != null) {
+            where = placesExtra.getString("galleryName");
 
+            String str = placesExtra.getString("progress");
 
+            progress = Constants.convertStringToArray(str);
 
-
-
-        if(where.equals("stanleypark")) {
-            kksbtn1.setBackgroundResource(R.drawable.pic1);
-            kksbtn2.setBackgroundResource(R.drawable.pic2);
-            kksbtn3.setBackgroundResource(R.drawable.pic3);
-            kksbtn4.setBackgroundResource(R.drawable.pic4);
-            kksbtn5.setBackgroundResource(R.drawable.pic5);
-            scount=sp1+sp2+sp3+sp4+sp5;
-
-            textView.setText(scount+"/"+stotal);
-            progressbar=(ProgressBar)findViewById(R.id.progressBar);
-
-            progressbar.setProgress(100 * scount / stotal);
-
-//            if (sp1 == 1) {
-//
-//                kksbtn1.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 1);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn1.setVisibility(View.INVISIBLE);
-//            }
-//
-//            if (sp2 == 1) {
-//                kksbtn2.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 2);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn2.setVisibility(View.INVISIBLE);
-//            }
-//            if (sp3 == 1) {
-//                kksbtn3.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 3);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn3.setVisibility(View.INVISIBLE);
-//            }
-//
-//            if (sp4 == 1) {
-//                kksbtn4.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 2);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn4.setVisibility(View.INVISIBLE);
-//            }
-//
-//            if (sp5 == 1) {
-//                kksbtn5.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 2);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn5.setVisibility(View.INVISIBLE);
-//            }
+            galleryMainActivity(progress);
         }
 
+    }
 
 
-        //police st
-        else{
-            kksbtn1.setBackgroundResource(R.drawable.pic6);
-            kksbtn2.setBackgroundResource(R.drawable.pic7);
-            kksbtn3.setBackgroundResource(R.drawable.pic8);
-            kksbtn4.setBackgroundResource(R.drawable.pic9);
-            kksbtn5.setBackgroundResource(R.drawable.pic1);
-            pcount=ps1+ps2+ps3+ps4+ps5;
+    public void galleryMainActivity(String[] strArr) {
+        if (where.equals("Stanley Park")) {
+            for (int i = 0; i < 5; i++) {
 
-            textView.setText(pcount + "/" + ptotal);
-            progressbar=(ProgressBar)findViewById(R.id.progressBar);
+                sp[i] = Integer.parseInt(progress[i]);
 
-            progressbar.setProgress(100 * pcount / ptotal);
 
-//            if (ps1 == 1) {
-//
-//                kksbtn1.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 1);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn1.setVisibility(View.INVISIBLE);
-//            }
-//
-//            if (ps2 == 1) {
-//                kksbtn2.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 2);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn2.setVisibility(View.INVISIBLE);
-//            }
-//            if (ps3 == 1) {
-//                kksbtn3.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 3);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn3.setVisibility(View.INVISIBLE);
-//            }
-//
-//            if (ps4 == 1) {
-//                kksbtn4.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 2);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn4.setVisibility(View.INVISIBLE);
-//            }
-//
-//            if (ps5 == 1) {
-//                kksbtn5.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
-//                        intent.putExtra("imgnum", 2);
-//                        startActivityForResult(intent, 0);
-//                    }
-//                });
-//            } else {
-//                kksbtn5.setVisibility(View.INVISIBLE);
-//            }
+                imageButtons[i].setBackgroundResource(spImages[i]);
+                if (sp[i] == 1){
+                    final int finalI = i;
+                    imageButtons[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
+                            intent.putExtra("imgnum", finalI);
+                            startActivityForResult(intent, 0);
+                        }
+                    });
+                    scount = sp[0] + sp[1] + sp[2] + sp[3] + sp[4];
 
+                    textView.setText(scount + "/" + stotal);
+                    progressbar = (ProgressBar) findViewById(R.id.progressBar);
+
+                    progressbar.setProgress(100 * scount / stotal);
+
+                }
+                else{
+                    imageButtons[i].setVisibility(View.INVISIBLE);
+                }
+
+            }
+        } else {
+            for (int i = 0; i < 5; i++) {
+                gt[i] = Integer.parseInt(progress[i]);
+                imageButtons[i].setBackgroundResource(gtImages[i]);
+                if (gt[i] == 1){
+                    final int finalI = i;
+                    imageButtons[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getApplicationContext(), GalSubActivity.class);
+                            intent.putExtra("imgnum", finalI+5);
+                            startActivityForResult(intent, 0);
+                        }
+                    });
+
+                }
+                else{
+                    imageButtons[i].setVisibility(View.INVISIBLE);
+                }
+
+            }
+            gcount = gt[0] + gt[1] + gt[2] + gt[3] + gt[4];
+
+            textView.setText(gcount + "/" + gtotal);
+            progressbar = (ProgressBar) findViewById(R.id.progressBar);
+
+            progressbar.setProgress(100 * gcount / gtotal);
         }
-
     }
 }

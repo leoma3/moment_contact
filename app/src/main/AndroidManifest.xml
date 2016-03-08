@@ -26,6 +26,11 @@
             android:label="GalleryActivity" >
         </activity>
 
+        <activity
+            android:name=".GalSubActivity"
+            android:label="GalSubActivity" >
+        </activity>
+
         <activity android:name=".AllRowActivity"></activity>
 
 
