@@ -53,7 +53,7 @@ public class MyDatabase {
     {
         //select plants from database of type 'herb'
 
-        String[] columns = {Constants.NAME, Constants.PASSWORD
+        String[] columns = {Constants.UID, Constants.NAME, Constants.PASSWORD
                 , Constants.STANLEY_PARK, Constants.POLICE_STATION
         };
 
@@ -61,5 +61,13 @@ public class MyDatabase {
         Cursor cursor = sqLiteDatabase.query(Constants.TABLE_NAME, columns, selection, null, null, null, null);
 
         return cursor;
+    }
+
+    public int updateRow (String who, String column, String newValue){
+        ContentValues cv = new ContentValues();
+        cv.put(column, newValue);
+        String[] sa = {who};
+        int affectedRows = sqLiteDatabase.update(Constants.TABLE_NAME, cv, Constants.NAME+"=?", sa);
+        return affectedRows;
     }
 }
