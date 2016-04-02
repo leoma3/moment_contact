@@ -3,114 +3,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="0dp"
     tools:context="com.example.leo.momentcontact.PlacesActivity">
 
-    <TextView
-        android:id="@+id/profileNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="32dp"
-        android:text="Person&apos;s Name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#333333"
+        android:paddingTop="60dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
 
-    <TextView
-        android:id="@+id/memberSinceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/profileNameTextView"
-        android:text="Member Since 2014"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/profileNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Person&apos;s Name"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textSize="13pt"
+                android:textColor="#ffffff"/>
 
-    <RelativeLayout
-        android:id="@+id/stanleyGroup"
+            <TextView
+                android:id="@+id/memberSinceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Member Since 2014"
+                android:textColor="#dddddd"
+                android:textSize="7pt"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="stanleyGallery"
-        android:layout_alignBottom="@+id/gastownGroup"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="50dp">
+        android:layout_marginTop="150dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp">
 
-        <TextView
-            android:id="@+id/stanleyTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:clickable="true"
-            android:text="Stanley Park"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TableRow
+            android:id="@+id/stanleyGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="stanleyGallery">
 
-        <ProgressBar
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/stanleyBar"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-             android:layout_marginLeft="120dp"/>
+            <TextView
+                android:id="@+id/stanleyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="2"
+                android:clickable="true"
+                android:text="Stanley Park"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0 %"
-            android:id="@+id/stanleyPercentTextView"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="25dp"
-            android:layout_marginEnd="25dp" />
+            <ProgressBar
+                android:id="@+id/stanleyBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
 
+            <TextView
+                android:id="@+id/stanleyPercentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="0 %"
+                android:textSize="7pt"/>
 
-    </RelativeLayout>
+        </TableRow>
 
+        <TableRow
+            android:id="@+id/gastownGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:onClick="gastownGallery">
 
-    <RelativeLayout
-        android:id="@+id/gastownGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="200dp"
-        android:onClick="gastownGallery">
+            <TextView
+                android:id="@+id/gasTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="2"
+                android:clickable="true"
+                android:text="Gastown"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/gasTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:clickable="true"
-            android:text="Gastown"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ProgressBar
+                android:id="@+id/gastownBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
 
-        <ProgressBar
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/gastownBar"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_marginLeft="120dp"/>
+            <TextView
+                android:id="@+id/gasPercentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="0 %"
+                android:textSize="7pt"/>
+        </TableRow>
+    </TableLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0 %"
-            android:id="@+id/gasPercentTextView"
-            android:layout_marginRight="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-
-    </RelativeLayout>
 
 </RelativeLayout>
