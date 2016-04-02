@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by gloriazhong on 2016-03-05.
@@ -125,5 +126,12 @@ public class GalleryActivity extends Activity {
 
             progressbar.setProgress(100 * gcount / gtotal);
         }
+    }
+
+    public void updateGallery(View view) {
+        progress = new String[]{"1","1","1","1","1"};
+        galleryMainActivity(progress);
+        Toast.makeText(GalleryActivity.this, " "+progress[0], Toast.LENGTH_SHORT).show();
+        imageButtons[0].setBackgroundResource(gtImages[0]);
     }
 }

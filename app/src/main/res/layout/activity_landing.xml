@@ -87,10 +87,10 @@
         android:layout_height="wrap_content"
         android:text="insert"
         android:id="@+id/button"
+        android:onClick="addSomething"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/LoginButton"
-        android:layout_toStartOf="@+id/LoginButton"
-        android:onClick="addSomething"/>
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

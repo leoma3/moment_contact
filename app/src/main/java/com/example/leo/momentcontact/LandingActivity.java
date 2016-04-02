@@ -11,7 +11,10 @@ import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +32,8 @@ public class LandingActivity extends Activity {
 
     LocationManager lm;
 
+    Location surreyStation = new Location("");//provider name is unecessary
+
     double longitude;
     double latitude;
 
@@ -36,8 +41,16 @@ public class LandingActivity extends Activity {
         public void onLocationChanged(Location location) {
             longitude = location.getLongitude();
             latitude = location.getLatitude();
-            Toast.makeText(LandingActivity.this, "location changed", Toast.LENGTH_SHORT).show();
-//            double distance =
+            float distanceInMeters = surreyStation.distanceTo(location);
+            Toast.makeText(LandingActivity.this, "location changed " + distanceInMeters + " meters", Toast.LENGTH_SHORT).show();
+
+            ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
+            toneG.startTone(ToneGenerator.TONE_PROP_BEEP, 400);
+
+
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(1500);
+
         }
 
         @Override
@@ -79,6 +92,8 @@ public class LandingActivity extends Activity {
 //
 //        Toast.makeText(this, newArr[2], Toast.LENGTH_LONG).show();
 
+        surreyStation.setLatitude(49.189473d);//your coords of course
+        surreyStation.setLongitude(-122.847834d);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -91,7 +106,8 @@ public class LandingActivity extends Activity {
             return;
         }
 
-        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 10, locationListener);
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
+        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
 
     }
 
@@ -169,7 +185,7 @@ public class LandingActivity extends Activity {
     public void updateButton(View view) {
         username = usernameEditText.getText().toString().toLowerCase();
         int num = myDatabase.updateRow(username, Constants.STANLEY_PARK, "1,1,1,1,1");
-        Toast.makeText(LandingActivity.this, "" + num, Toast.LENGTH_SHORT).show();
+        Toast.makeText(LandingActivity.this, "update : " + num, Toast.LENGTH_SHORT).show();
     }
 
     public void locationButton(View view) {
