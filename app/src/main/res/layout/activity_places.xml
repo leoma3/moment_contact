@@ -27,7 +27,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/profileNameTextView"
-        android:text="Member Since 1987"
+        android:text="Member Since 2014"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -50,6 +50,13 @@
             android:clickable="true"
             android:text="Stanley Park"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ProgressBar
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/stanleyBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+             android:layout_marginLeft="120dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,6 +92,13 @@
             android:text="Gastown"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
+        <ProgressBar
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/gastownBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_marginLeft="120dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,10 +112,5 @@
 
 
     </RelativeLayout>
-
-
-
-
-
 
 </RelativeLayout>

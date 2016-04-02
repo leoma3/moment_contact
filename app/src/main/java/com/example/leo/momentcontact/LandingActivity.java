@@ -27,7 +27,7 @@ public class LandingActivity extends Activity {
     EditText passwordEditText;
     public MyDatabase myDatabase;
     String username;
-    String usernameProfile;
+    String profileName;
     String password;
 
     LocationManager lm;
@@ -129,11 +129,11 @@ public class LandingActivity extends Activity {
 
     public void login(View v) {
 
-        String who = usernameEditText.getText().toString().toLowerCase();
-        usernameProfile = usernameEditText.getText().toString();
+        String userName = usernameEditText.getText().toString().toLowerCase();
+        profileName = usernameEditText.getText().toString();
         String pass = passwordEditText.getText().toString();
 
-        Cursor whoResult = myDatabase.getUser(who);
+        Cursor whoResult = myDatabase.getUser(userName);
         int pwIndex = whoResult.getColumnIndex(Constants.PASSWORD);
 
 //        whoResult.moveToNext();
@@ -149,7 +149,8 @@ public class LandingActivity extends Activity {
 
                 Intent intent = new Intent(this, PlacesActivity.class);
 
-                intent.putExtra("who", usernameProfile);
+                intent.putExtra("userName", userName);
+                intent.putExtra("profileName", profileName);
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Password doesn't match, try again", Toast.LENGTH_SHORT).show();
@@ -166,7 +167,7 @@ public class LandingActivity extends Activity {
     public void register(View v) {
 
         username = usernameEditText.getText().toString().toLowerCase();
-        usernameProfile = usernameEditText.getText().toString();
+        profileName = usernameEditText.getText().toString();
         password = passwordEditText.getText().toString();
 
         Toast.makeText(this, username + " " + password, Toast.LENGTH_SHORT).show();
@@ -176,7 +177,8 @@ public class LandingActivity extends Activity {
         } else {
             Toast.makeText(this, "register success", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, PlacesActivity.class);
-            intent.putExtra("who", usernameProfile);
+            intent.putExtra("userName", username);
+            intent.putExtra("profileName", profileName);
             startActivity(intent);
         }
 

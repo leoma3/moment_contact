@@ -1,10 +1,14 @@
 package com.example.leo.momentcontact;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +34,9 @@ public class PlacesActivity extends Activity {
     MyDatabase db;
     SimpleCursorAdapter myAdapter;
 
+    private ProgressBar stanleyBar = null;
+    private ProgressBar gastownBar = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +53,24 @@ public class PlacesActivity extends Activity {
         Bundle profileExtra = getIntent().getExtras();
         profileName = (TextView) findViewById(R.id.profileNameTextView);
 
-        String pName = profileExtra.getString("who");
+        String pName = profileExtra.getString("profileName");
+        String dbUserName = profileExtra.getString("userName");
         profileName.setText(pName);
 
-        Cursor whoResult = db.getUser(pName);
+        stanleyBar = (ProgressBar) findViewById(R.id.stanleyBar);
+        gastownBar = (ProgressBar) findViewById(R.id.gastownBar);
+
+        getGalleryProgress(dbUserName);
+
+    }
+
+    public void getGalleryProgress(String dbUserName){
+
+        Cursor whoResult = db.getUser(dbUserName);
         int sPercIndex = whoResult.getColumnIndex(Constants.STANLEY_PARK);
         int gPercIndex = whoResult.getColumnIndex(Constants.POLICE_STATION);
 
-        if (whoResult.moveToNext()){
+        if (whoResult.moveToNext()) {
 
             sArrayDB = whoResult.getString(sPercIndex);  // "0,0,0,0,0"
             gArrayDB = whoResult.getString(gPercIndex);
@@ -64,7 +81,7 @@ public class PlacesActivity extends Activity {
 
             float sum = 0;
 
-            for (int i = 0; i < stanleyArray.length; i++){
+            for (int i = 0; i < stanleyArray.length; i++) {
 
                 if (stanleyArray[i].equals("1")) {
                     sum++;
@@ -72,13 +89,19 @@ public class PlacesActivity extends Activity {
                 }
             }
 
-            float stanleyResult = sum/stanleyArray.length;
-            sPercentage = Integer.toString(Math.round(stanleyResult*100));
+            float stanleyResult = sum / stanleyArray.length;
+            sPercentage = Integer.toString(Math.round(stanleyResult * 100));
+
+                stanleyBar.setVisibility(View.VISIBLE);
+                stanleyBar.setMax(100);
+                stanleyBar.setProgress(Math.round(stanleyResult * 100));
+                //Set the second progress bar value
+
             stanleyPercent.setText(sPercentage + " %");
 
             String[] gasArray = Constants.convertStringToArray(gArrayDB);
             sum = 0;
-            for (int i = 0; i < gasArray.length; i++){
+            for (int i = 0; i < gasArray.length; i++) {
 
                 if (gasArray[i].equals("1")) {
                     sum++;
@@ -86,18 +109,19 @@ public class PlacesActivity extends Activity {
                 }
             }
 
-            float gasResult = sum/gasArray.length;
+            float gasResult = sum / gasArray.length;
 //            Toast.makeText(PlacesActivity.this, sum + " " +gasResult +" "+ gasArray.length, Toast.LENGTH_SHORT).show();
-            gPercentage = Integer.toString(Math.round(gasResult*100));
+            gPercentage = Integer.toString(Math.round(gasResult * 100));
+
+            gastownBar.setVisibility(View.VISIBLE);
+            gastownBar.setMax(100);
+            gastownBar.setProgress(Math.round(gasResult * 100));
             gastownPercent.setText(gPercentage + " %");
 
 
-
-        }
-        else{
+        } else {
             Toast.makeText(this, "Cannot get array of places", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void stanleyGallery(View v) {
@@ -115,6 +139,9 @@ public class PlacesActivity extends Activity {
         intent.putExtra("progress", gArrayDB);
         startActivity(intent);
     }
+
+
+
 
 }
 

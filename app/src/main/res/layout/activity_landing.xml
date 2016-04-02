@@ -9,6 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.leo.momentcontact.LandingActivity">
 
+    <ImageView
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/montact_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,18 +24,21 @@
         android:ems="10"
         android:id="@+id/userEditText"
         android:layout_alignTop="@+id/userTextView"
-        android:layout_toRightOf="@+id/userTextView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/registerButton"
+        android:layout_toRightOf="@+id/registerButton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Username:"
+        android:text="Username"
         android:id="@+id/userTextView"
-        android:layout_marginTop="57dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignRight="@+id/passTextView"
+        android:layout_alignEnd="@+id/passTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -36,12 +47,14 @@
         android:layout_height="wrap_content"
 
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Password:"
+        android:text="Password"
         android:id="@+id/passTextView"
-        android:layout_below="@+id/userEditText"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/userTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp" />
+        android:layout_toLeftOf="@+id/passEditText"
+        android:layout_toStartOf="@+id/passEditText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,11 +75,11 @@
 
         android:text="Register"
         android:id="@+id/registerButton"
+        android:layout_marginTop="37dp"
+        android:onClick="register"
         android:layout_below="@+id/passEditText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="107dp"
-        android:onClick="register"/>
+        android:layout_alignParentStart="true" />
 
 
 
@@ -122,6 +135,8 @@
         android:layout_toLeftOf="@+id/button3"
         android:layout_toStartOf="@+id/button3"
         android:onClick="locationButton"/>
+
+
 
 
 </RelativeLayout>
