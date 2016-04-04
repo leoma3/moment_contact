@@ -54,7 +54,8 @@
             android:id="@+id/stanleyGroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="stanleyGallery">
+            android:onClick="stanleyGallery"
+            android:clickable="true">
 
             <TextView
                 android:id="@+id/stanleyTextView"
@@ -62,16 +63,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
-                android:clickable="true"
                 android:text="Stanley Park"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <ProgressBar
                 android:id="@+id/stanleyBar"
-                style="@android:style/Widget.ProgressBar.Horizontal"
+                style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+                android:layout_gravity="bottom"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:id="@+id/stanleyPercentTextView"
@@ -89,7 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
-            android:onClick="gastownGallery">
+            android:onClick="gastownGallery"
+            android:clickable="true">
 
             <TextView
                 android:id="@+id/gasTextView"
@@ -97,16 +100,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
-                android:clickable="true"
                 android:text="Gastown"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <ProgressBar
                 android:id="@+id/gastownBar"
-                style="@android:style/Widget.ProgressBar.Horizontal"
+                style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+                android:layout_gravity="bottom"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:id="@+id/gasPercentTextView"
