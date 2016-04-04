@@ -31,6 +31,7 @@ public class PlacesActivity extends Activity {
     String gastownName;
     String sArrayDB;
     String gArrayDB;
+    String dbUserName;
     MyDatabase db;
     SimpleCursorAdapter myAdapter;
 
@@ -54,7 +55,7 @@ public class PlacesActivity extends Activity {
         profileName = (TextView) findViewById(R.id.profileNameTextView);
 
         String pName = profileExtra.getString("profileName");
-        String dbUserName = profileExtra.getString("userName");
+        dbUserName = profileExtra.getString("userName");
         profileName.setText(pName);
 
         stanleyBar = (ProgressBar) findViewById(R.id.stanleyBar);
@@ -64,7 +65,7 @@ public class PlacesActivity extends Activity {
 
     }
 
-    public void getGalleryProgress(String dbUserName){
+    public void getGalleryProgress(String dbUserName) {
 
         Cursor whoResult = db.getUser(dbUserName);
         int sPercIndex = whoResult.getColumnIndex(Constants.STANLEY_PARK);
@@ -92,10 +93,10 @@ public class PlacesActivity extends Activity {
             float stanleyResult = sum / stanleyArray.length;
             sPercentage = Integer.toString(Math.round(stanleyResult * 100));
 
-                stanleyBar.setVisibility(View.VISIBLE);
-                stanleyBar.setMax(100);
-                stanleyBar.setProgress(Math.round(stanleyResult * 100));
-                //Set the second progress bar value
+            stanleyBar.setVisibility(View.VISIBLE);
+            stanleyBar.setMax(100);
+            stanleyBar.setProgress(Math.round(stanleyResult * 100));
+            //Set the second progress bar value
 
             stanleyPercent.setText(sPercentage + " %");
 
@@ -127,7 +128,7 @@ public class PlacesActivity extends Activity {
     public void stanleyGallery(View v) {
         Intent intent = new Intent(this, GalleryActivity.class);
         intent.putExtra("galleryName", stanleyName);
-        intent.putExtra("userName", Constants.NAME);
+        intent.putExtra("userName", dbUserName);
         intent.putExtra("progress", sArrayDB);
         startActivity(intent);
     }
@@ -135,13 +136,17 @@ public class PlacesActivity extends Activity {
     public void gastownGallery(View v) {
         Intent intent = new Intent(this, GalleryActivity.class);
         intent.putExtra("galleryName", gastownName);
-        intent.putExtra("userName", Constants.NAME);
+        intent.putExtra("userName", dbUserName);
         intent.putExtra("progress", gArrayDB);
         startActivity(intent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-
-
+        // To make sure there is an update with the latest data in the database when coming back to this activity
+        getGalleryProgress(dbUserName);
+    }
 }
 

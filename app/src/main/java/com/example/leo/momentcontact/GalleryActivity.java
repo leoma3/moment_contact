@@ -32,6 +32,8 @@ public class GalleryActivity extends Activity {
 
     ImageButton imageButtons[] = new ImageButton[5];
 
+    String userName;
+
     int[] sp = new int[5];
     int[] gt = new int[5];
     int[] spImages = {
@@ -40,6 +42,7 @@ public class GalleryActivity extends Activity {
             R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic1};
 
 
+    MyDatabase myDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +60,15 @@ public class GalleryActivity extends Activity {
         if (placesExtra != null) {
             where = placesExtra.getString("galleryName");
 
+            userName = placesExtra.getString("userName");
+
             String str = placesExtra.getString("progress");
 
             progress = Constants.convertStringToArray(str);
 
             galleryMainActivity(progress);
         }
+        myDatabase = new MyDatabase(this);
 
     }
 
@@ -91,6 +97,7 @@ public class GalleryActivity extends Activity {
                     progressbar = (ProgressBar) findViewById(R.id.progressBar);
 
                     progressbar.setProgress(100 * scount / stotal);
+                    imageButtons[i].setVisibility(View.VISIBLE);
 
                 }
                 else{
@@ -113,6 +120,8 @@ public class GalleryActivity extends Activity {
                         }
                     });
 
+                    imageButtons[i].setVisibility(View.VISIBLE);
+
                 }
                 else{
                     imageButtons[i].setVisibility(View.INVISIBLE);
@@ -130,8 +139,15 @@ public class GalleryActivity extends Activity {
 
     public void updateGallery(View view) {
         progress = new String[]{"1","1","1","1","1"};
+        String progessInString = Constants.convertArrayToString(progress);
+        if (where.equals("Stanley Park")) {
+            int num = myDatabase.updateRow(userName, Constants.STANLEY_PARK, progessInString);
+            Toast.makeText(GalleryActivity.this, "udpate : " + num, Toast.LENGTH_SHORT).show();
+        } else if (where.equals("Gastown")){
+            int num = myDatabase.updateRow(userName, Constants.POLICE_STATION, progessInString);
+            Toast.makeText(GalleryActivity.this, "udpate : " + num, Toast.LENGTH_SHORT).show();
+        }
         galleryMainActivity(progress);
-        Toast.makeText(GalleryActivity.this, " "+progress[0], Toast.LENGTH_SHORT).show();
-        imageButtons[0].setBackgroundResource(gtImages[0]);
+
     }
 }

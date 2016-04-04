@@ -16,7 +16,8 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBCv2FRGgL3YvNXoR-05W0IcPjB82tu8GY" />
+            android:value="AIzaSyBqo9ZHm8skT153xEd8fKNak-k3pm62DIw" />
+
         <activity android:name=".LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,19 +28,19 @@
 
         <activity
             android:name=".PlacesActivity"
-            android:label="PlacesActivity" >
-        </activity>
+            android:label="PlacesActivity"></activity>
         <activity
             android:name=".GalleryActivity"
-            android:label="GalleryActivity" >
-        </activity>
+            android:label="GalleryActivity"></activity>
 
         <activity
             android:name=".GalSubActivity"
-            android:label="GalSubActivity" >
-        </activity>
+            android:label="GalSubActivity"></activity>
 
         <activity android:name=".AllRowActivity"></activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
 
 
     </application>

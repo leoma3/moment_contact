@@ -107,7 +107,7 @@ public class LandingActivity extends Activity {
         }
 
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
-        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
+//        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
 
     }
 
@@ -209,5 +209,10 @@ public class LandingActivity extends Activity {
             return;
         }
         lm.removeUpdates(locationListener);
+    }
+
+    public void placeIndicate(View view) {
+        Intent i = new Intent(this, MapsActivity.class);
+        startActivity(i);
     }
 }
