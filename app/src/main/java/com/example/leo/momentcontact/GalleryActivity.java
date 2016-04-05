@@ -30,15 +30,9 @@ public class GalleryActivity extends Activity {
     String where; // "aslkdja"
 
 
-    int scount = 0;//stanleypark
-    int stotal = 5;
 
-    int gcount = 0;//gastown
-    int gtotal = 5;
+    TextView title;
 
-    TextView textView;
-
-    ProgressBar progressbar;
 
     ImageButton imageButtons[] = new ImageButton[5];
 
@@ -49,7 +43,7 @@ public class GalleryActivity extends Activity {
     int[] spImages = {
             R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};
     int[] gtImages={
-            R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic1};
+            R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic9};
 
 
     LocationManager lm;
@@ -116,7 +110,8 @@ public class GalleryActivity extends Activity {
         imageButtons[3] = (ImageButton) findViewById(R.id.kksbtn4);
         imageButtons[4] = (ImageButton) findViewById(R.id.kksbtn5);
 
-        textView = (TextView) findViewById(R.id.textView);
+
+        title= (TextView) findViewById(R.id.title);
 
         Bundle placesExtra = getIntent().getExtras();
 
@@ -138,6 +133,7 @@ public class GalleryActivity extends Activity {
 
     public void galleryMainActivity(String[] strArr) {
         if (where.equals("Stanley Park")) {
+            title.setText("Stanley Park");
             for (int i = 0; i < 5; i++) {
 
                 sp[i] = Integer.parseInt(progress[i]);
@@ -154,13 +150,6 @@ public class GalleryActivity extends Activity {
                             startActivityForResult(intent, 0);
                         }
                     });
-                    scount = sp[0] + sp[1] + sp[2] + sp[3] + sp[4];
-
-                    textView.setText(scount + "/" + stotal);
-                    progressbar = (ProgressBar) findViewById(R.id.progressBar);
-
-                    progressbar.setProgress(100 * scount / stotal);
-                    imageButtons[i].setVisibility(View.VISIBLE);
 
                 }
                 else{
@@ -169,6 +158,7 @@ public class GalleryActivity extends Activity {
 
             }
         } else {
+            title.setText("Gas Town");
             for (int i = 0; i < 5; i++) {
                 gt[i] = Integer.parseInt(progress[i]);
                 imageButtons[i].setBackgroundResource(gtImages[i]);
@@ -191,12 +181,7 @@ public class GalleryActivity extends Activity {
                 }
 
             }
-            gcount = gt[0] + gt[1] + gt[2] + gt[3] + gt[4];
 
-            textView.setText(gcount + "/" + gtotal);
-            progressbar = (ProgressBar) findViewById(R.id.progressBar);
-
-            progressbar.setProgress(100 * gcount / gtotal);
         }
     }
 
@@ -211,6 +196,7 @@ public class GalleryActivity extends Activity {
             Toast.makeText(GalleryActivity.this, "gastown udpate : " + num, Toast.LENGTH_SHORT).show();
         }
         galleryMainActivity(progress);
+
 
     }
 
@@ -250,5 +236,6 @@ public class GalleryActivity extends Activity {
 
 //        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
         lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
+
     }
 }

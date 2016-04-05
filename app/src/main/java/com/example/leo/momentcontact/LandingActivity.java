@@ -118,7 +118,7 @@ public class LandingActivity extends Activity {
         password = passwordEditText.getText().toString();
 
         Toast.makeText(this, username + " " + password, Toast.LENGTH_SHORT).show();
-        long id = myDatabase.insertData(username, password, "0,0,0,0,1", "1,0,1,0,0");
+        long id = myDatabase.insertData(username, password, "1,1,1,1,1", "1,0,1,0,0");
         if (id < 0) {
             Toast.makeText(this, "register fail, duplicated", Toast.LENGTH_SHORT).show();
         } else {
