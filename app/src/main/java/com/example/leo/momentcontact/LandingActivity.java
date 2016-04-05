@@ -30,51 +30,11 @@ public class LandingActivity extends Activity {
     String profileName;
     String password;
 
-    LocationManager lm;
 
-    Location surreyStation = new Location("");//provider name is unecessary
-
-    double longitude;
-    double latitude;
-
-    LocationListener locationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-            float distanceInMeters = surreyStation.distanceTo(location);
-            Toast.makeText(LandingActivity.this, "location changed " + distanceInMeters + " meters", Toast.LENGTH_SHORT).show();
-
-            ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
-            toneG.startTone(ToneGenerator.TONE_PROP_BEEP, 400);
-
-
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(1500);
-
-        }
-
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-            Toast.makeText(LandingActivity.this, "status changed", Toast.LENGTH_SHORT).show();
-
-        }
-
-        @Override
-        public void onProviderEnabled(String provider) {
-            Toast.makeText(LandingActivity.this, "provider enable", Toast.LENGTH_SHORT).show();
-
-        }
-
-        @Override
-        public void onProviderDisabled(String provider) {
-            Toast.makeText(LandingActivity.this, " provide disable", Toast.LENGTH_SHORT).show();
-
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
         usernameEditText = (EditText) findViewById(R.id.userEditText);
@@ -92,22 +52,9 @@ public class LandingActivity extends Activity {
 //
 //        Toast.makeText(this, newArr[2], Toast.LENGTH_LONG).show();
 
-        surreyStation.setLatitude(49.189473d);//your coords of course
-        surreyStation.setLongitude(-122.847834d);
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
 
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
-//        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
+
 
     }
 
@@ -190,25 +137,12 @@ public class LandingActivity extends Activity {
         Toast.makeText(LandingActivity.this, "update : " + num, Toast.LENGTH_SHORT).show();
     }
 
-    public void locationButton(View view) {
-        Toast.makeText(LandingActivity.this, latitude + " " + longitude, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        lm.removeUpdates(locationListener);
+
     }
 
     public void placeIndicate(View view) {
