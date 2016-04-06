@@ -141,6 +141,26 @@ public class PlacesActivity extends Activity {
         startActivity(intent);
     }
 
+    public void locateStanley(View v) {
+        Intent i = new Intent(this, MapsActivity.class);
+        i.putExtra("lat", 49.3017049f);
+        i.putExtra("lng", -123.1438943f);
+        i.putExtra("placeName", "Stanley Park");
+        i.putExtra("zoom", 14);
+        startActivity(i);
+    }
+
+    public void locateGastown(View v) {
+        Intent i = new Intent(this, MapsActivity.class);
+        i.putExtra("lat", 49.283034f);
+        i.putExtra("lng", -123.106315f);
+        i.putExtra("placeName", "Gastown");
+        i.putExtra("zoom", 16);
+        startActivity(i);
+    }
+
+
+
     @Override
     protected void onResume() {
         super.onResume();
