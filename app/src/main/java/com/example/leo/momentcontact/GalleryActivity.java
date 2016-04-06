@@ -150,7 +150,7 @@ public class GalleryActivity extends Activity {
                             startActivityForResult(intent, 0);
                         }
                     });
-
+                    imageButtons[i].setVisibility(View.VISIBLE);
                 }
                 else{
                     imageButtons[i].setVisibility(View.INVISIBLE);
@@ -232,7 +232,7 @@ public class GalleryActivity extends Activity {
             return;
         }
 
-//        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
         lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
 
     }
