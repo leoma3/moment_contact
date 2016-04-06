@@ -3,6 +3,7 @@ package com.example.leo.momentcontact;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ public class GalSubActivity extends ActionBarActivity
         title=(TextView)findViewById(R.id.title);
         nameOfLocation=(TextView)findViewById(R.id.nameOfLocation);
         description=(TextView)findViewById(R.id.description);
+
+        description.setMovementMethod(new ScrollingMovementMethod());
 
         Intent intent = getIntent();
         int imgnum = intent.getIntExtra("imgnum", 0);
@@ -52,9 +55,9 @@ public class GalSubActivity extends ActionBarActivity
         else if(imgnum == 3) {
             bigimg.setImageResource(R.drawable.pic4);
             bigimg.setScaleType(ImageView.ScaleType.FIT_XY);
-            title.setText("Vancouver Aquarium");
-            nameOfLocation.setText("    The Vancouver Aquarium is widely respected for its research and marine stewardship, and visitors can learn more about the region's marine life through the numerous exhibits. Adults and kids alike will love the entertaining and educational \"encounters\" program, which allows visitors to go behind the scenes and get up close and personal with the animals and the people who train them. This includes feeding, helping train and learning about the habitats and lifestyles of dolphins, beluga whales, sea lions, sea otters, sea turtles and other sea creatures.");
-            description.setText("");
+            title.setText("Stanley park");
+            nameOfLocation.setText("Vancouver Aquarium");
+            description.setText("    The Vancouver Aquarium is widely respected for its research and marine stewardship, and visitors can learn more about the region's marine life through the numerous exhibits. Adults and kids alike will love the entertaining and educational \"encounters\" program, which allows visitors to go behind the scenes and get up close and personal with the animals and the people who train them. This includes feeding, helping train and learning about the habitats and lifestyles of dolphins, beluga whales, sea lions, sea otters, sea turtles and other sea creatures.");
         }
         else if(imgnum == 4) {
             bigimg.setImageResource(R.drawable.pic5);

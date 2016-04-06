@@ -192,10 +192,7 @@ public class GalleryActivity extends Activity {
             int num = myDatabase.updateRow(userName, Constants.STANLEY_PARK, progessInString);
             Toast.makeText(GalleryActivity.this, "stanly udpate : " + num, Toast.LENGTH_SHORT).show();
         }
-//        else if (where.equals("Gastown")){
-//            int num = myDatabase.updateRow(userName, Constants.POLICE_STATION, progessInString);
-//            Toast.makeText(GalleryActivity.this, "gastown udpate : " + num, Toast.LENGTH_SHORT).show();
-//        }
+
         galleryMainActivity(progress);
 
 

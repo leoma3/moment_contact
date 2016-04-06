@@ -18,7 +18,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBqo9ZHm8skT153xEd8fKNak-k3pm62DIw" />
 
-        <activity android:name=".LandingActivity">
+        <activity android:name=".LandingActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,17 +28,21 @@
         </activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".PlacesActivity"
             android:label="PlacesActivity"></activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".GalleryActivity"
             android:label="GalleryActivity"></activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".GalSubActivity"
             android:label="GalSubActivity"></activity>
 
-        <activity android:name=".AllRowActivity"></activity>
+        <activity android:name=".AllRowActivity" android:screenOrientation="portrait"></activity>
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
