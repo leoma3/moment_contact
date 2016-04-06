@@ -43,29 +43,9 @@ public class LandingActivity extends Activity {
         password = passwordEditText.getText().toString();
         myDatabase = new MyDatabase(this);
 
-//        String[] strArr = {"1","2","3"};
-//
-//        String strResult = Constants.convertArrayToString(strArr);
-//
-//        String[] newArr = Constants.convertStringToArray(strResult);
-//
-//
-//        Toast.makeText(this, newArr[2], Toast.LENGTH_LONG).show();
-
-
-
-
 
     }
 
-    public void addSomething(View view) {
-        long id = myDatabase.insertData("LEO", "123", "0,1,0,0,1", "1,1,1,1,1");
-        if (id < 0) {
-            Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     public void viewResults(View view) {
 
@@ -82,8 +62,6 @@ public class LandingActivity extends Activity {
 
         Cursor whoResult = myDatabase.getUser(userName);
         int pwIndex = whoResult.getColumnIndex(Constants.PASSWORD);
-
-//        whoResult.moveToNext();
 
 
         if (whoResult.moveToNext()) {
@@ -118,7 +96,7 @@ public class LandingActivity extends Activity {
         password = passwordEditText.getText().toString();
 
         Toast.makeText(this, username + " " + password, Toast.LENGTH_SHORT).show();
-        long id = myDatabase.insertData(username, password, "1,1,1,1,1", "1,0,1,0,0");
+        long id = myDatabase.insertData(username, password, "0,1,0,0,1", "1,0,1,0,1");
         if (id < 0) {
             Toast.makeText(this, "register fail, duplicated", Toast.LENGTH_SHORT).show();
         } else {
@@ -131,12 +109,6 @@ public class LandingActivity extends Activity {
 
     }
 
-    public void updateButton(View view) {
-        username = usernameEditText.getText().toString().toLowerCase();
-        int num = myDatabase.updateRow(username, Constants.STANLEY_PARK, "1,1,1,1,1");
-        Toast.makeText(LandingActivity.this, "update : " + num, Toast.LENGTH_SHORT).show();
-    }
-
 
     @Override
     protected void onPause() {
@@ -145,8 +117,5 @@ public class LandingActivity extends Activity {
 
     }
 
-    public void placeIndicate(View view) {
-        Intent i = new Intent(this, MapsActivity.class);
-        startActivity(i);
-    }
+
 }
