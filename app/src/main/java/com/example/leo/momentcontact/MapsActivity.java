@@ -13,6 +13,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private float lat;
+    private float lng;
+    private int zoom;
+    private String placeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Bundle placesExtra = getIntent().getExtras();
+
+        if (placesExtra != null) {
+            lat = placesExtra.getFloat("lat");
+            lng = placesExtra.getFloat("lng");
+            zoom = placesExtra.getInt("zoom");
+            placeName = placesExtra.getString("placeName");
+        }
     }
 
 
@@ -39,8 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(49.189473,-122.847834);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Surrey Central Station"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 17));
+        LatLng sydney = new LatLng(lat,lng);
+        mMap.addMarker(new MarkerOptions().position(sydney).title(placeName));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, zoom));
     }
 }

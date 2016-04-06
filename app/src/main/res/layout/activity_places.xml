@@ -54,17 +54,18 @@
             android:id="@+id/stanleyGroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="stanleyGallery"
-            android:clickable="true">
+            >
 
             <TextView
                 android:id="@+id/stanleyTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_weight="2"
+                android:layout_marginRight="10dp"
                 android:text="Stanley Park"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:onClick="stanleyGallery"
+                android:clickable="true"/>
 
             <ProgressBar
                 android:id="@+id/stanleyBar"
@@ -73,16 +74,28 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:onClick="stanleyGallery"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/stanleyPercentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:text="0 %"
-                android:textSize="7pt"/>
+                android:textSize="7pt"
+                android:onClick="stanleyGallery"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageView2"
+                android:src="@drawable/montact_locate"
+                android:onClick="locateStanley"/>
 
         </TableRow>
 
@@ -90,9 +103,7 @@
             android:id="@+id/gastownGroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:onClick="gastownGallery"
-            android:clickable="true">
+            android:layout_marginTop="40dp">
 
             <TextView
                 android:id="@+id/gasTextView"
@@ -101,7 +112,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
                 android:text="Gastown"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:onClick="gastownGallery"
+                android:clickable="true"/>
 
             <ProgressBar
                 android:id="@+id/gastownBar"
@@ -110,16 +123,28 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:onClick="gastownGallery"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/gasPercentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:text="0 %"
-                android:textSize="7pt"/>
+                android:textSize="7pt"
+                android:onClick="gastownGallery"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imageView3"
+                android:src="@drawable/montact_locate"
+                android:onClick="locateGastown"/>
         </TableRow>
     </TableLayout>
 
