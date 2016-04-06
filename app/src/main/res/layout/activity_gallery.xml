@@ -4,33 +4,49 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" 
     android:layout_height="match_parent" android:layout_width="match_parent">
-<TableLayout
+
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333333"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffffff"
+            android:layout_margin="20dp"
+            android:textSize="25dp"
+            android:id="@+id/title"
+            />
+
+    </LinearLayout>
+
+    <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView"
-            android:layout_column="0" />
-    </TableRow>
 
     <TableRow
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <ImageButton
             android:layout_height="120dp"
             android:layout_width="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="8dp"
             android:scaleType="centerCrop"
             android:id="@+id/kksbtn1"
             />
@@ -38,17 +54,12 @@
             android:layout_height="120dp"
             android:layout_width="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="8dp"
             android:scaleType="centerCrop"
             android:id="@+id/kksbtn2"
 
             />
-        <ImageButton
-            android:layout_height="120dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:id="@+id/kksbtn3"
-            />
+
     </TableRow>
     <TableRow>
         <ImageButton
@@ -56,17 +67,36 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:scaleType="centerCrop"
-            android:id="@+id/kksbtn4"
+            android:layout_margin="8dp"
+            android:id="@+id/kksbtn3"
             />
         <ImageButton
             android:layout_height="120dp"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:scaleType="centerCrop"
-            android:id="@+id/kksbtn5"
+            android:layout_margin="8dp"
+            android:id="@+id/kksbtn4"
             />
     </TableRow>
-
+    <TableRow>
+        <ImageButton
+            android:layout_height="120dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/kksbtn5"
+            />
+        <ImageButton
+            android:layout_height="120dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/kksb"
+            />
+    </TableRow>
 
 
     <TableRow
@@ -81,118 +111,7 @@
             android:layout_column="0" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </TableRow>
 
 
 
