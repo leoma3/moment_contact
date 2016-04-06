@@ -66,22 +66,36 @@ public class GalSubActivity extends ActionBarActivity
         else if(imgnum == 5) {
             bigimg.setImageResource(R.drawable.pic6);
             title.setText("Gas Town");
+            nameOfLocation.setText("Steam clock");
+            description.setText("   A steam clock is a clock which is fully or partially powered by a steam engine. Only a few functioning steam clocks exist, most designed and built by Canadian horologist Raymond Saunders for display in urban public spaces. Steam clocks built by Saunders are located in Otaru, Japan; Indianapolis, USA; and the Canadian cities of Vancouver, Whistler and Port Coquitlam, all in British Columbia. Steam clocks by other makers are installed in St Helier, Jersey and at the Chelsea Farmers' Market in London, England.");
         }
         else if(imgnum == 6) {
             bigimg.setImageResource(R.drawable.pic7);
             title.setText("Gas Town");
+            nameOfLocation.setText("Coastal Peoples");
+            description.setText("   Coastal Peoples showcases museum-quality artwork representing some of the finest master carvers and newly emerging talent on the west coast. Focused on an unparalleled collection of contemporary artwork, identifying the Northwest Coast and Inuit communities of Northeastern Canada, newcomers and collectors alike can enjoy the gallery in person or online to gain access to a monumental collection. ");
         }
         else if(imgnum == 7) {
             bigimg.setImageResource(R.drawable.pic8);
             title.setText("Gas Town");
+            nameOfLocation.setText("Vancouver Film School");
+            description.setText("   From its inception in 1987, Vancouver Film School (VFS) has focused its business on entertainment related educational products. VFS has become the world’s pre-eminent centre for delivering quantifiably superior educational curriculum in highly accelerated time frames offering full time landmark ‘results orientated’ production programs in all facets of the entertainment industry.");
         }
         else if(imgnum == 8) {
             bigimg.setImageResource(R.drawable.pic9);
             title.setText("Gas Town");
+            nameOfLocation.setText("Gassy Jack statue");
+            description.setText("   Captain John “Gassy Jack” Deighton is a local legend and namesake for the area of downtown Vancouver known as Gastown. The Gassy Jack statue is one of the most photographed in Vancouver and is this week’s featured Vancouver Icon.Saloon proprietor Deighton headed toward the Burrard Inlet by canoe from New Westminster and saw a need that he could fulfill near the mill. In 1867 he told the workers in the harbour that they could have all the whiskey they could drink if they helped him build a saloon. Within 24 hours “The Globe” was up and running. While there is nothing left of The Globe (or much else of Vancouver from that time period due to The Great Fire) the statue of Gassy Jack stands at Maple Tree Square, where Alexander, Carrall, Water and Powell meet.");
+
+
+
         }
         else if(imgnum == 9) {
-            bigimg.setImageResource(R.drawable.pic1);
+            bigimg.setImageResource(R.drawable.pic10);
             title.setText("Gas Town");
+            nameOfLocation.setText("The diamond");
+            description.setText("   Although it’s been open for a just over 2 years now, The Diamond is one Gastown, ahem, gem that is easy to miss. Some friends and I discovered it rather surreptitiously one evening when the street level Maple Street Square eatery we planned on trying was full. We stood in the square hemming and hawing about what to do next, looked to the heavens for an answer, and there it was: one floor up, art deco chandeliers calling to us from giant windows. But how to get into this magical, elevated place? A brief search brought us to a simple street-talker sign featuring a great big graphic of a cut diamond and behind it, a large set of stairs");
+
         }
 
     }

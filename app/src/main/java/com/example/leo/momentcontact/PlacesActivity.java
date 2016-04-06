@@ -244,8 +244,8 @@ public class PlacesActivity extends Activity {
             return;
         }
 
-//        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
-        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 5, locationListener);
+        //lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 5, locationListener);
     }
 }
 
